@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rapidão Lanches</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="icon" href="imagens/rapidao.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="area-cabecalho">
+
+        <div id="area-logo">
+            <div class="container">
+				<h1>Rapidão Lanches</h1>
+				<img class="imagem-sobreposta" src="imagens/rapidao.jpg" alt="Logo">
+			  </div>
+    
+        <div id="area-menu">
+            <a href="index.html">Rapidão Lanches</a>
+            <a href="pizza.html">Pizzas</a>
+            <a href="hamburguer.html">Hamburguer</a>
+            <a href="bebidas.html">Bebidas</a>
+            <a href="sobremesa.html">Sobremesas</a>
+            <a href="salgado.html">Salgados</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="contato.html">Contato</a>
+        </div>
+
+    </div>
+
+        <div id="area-principal2">
+
+        <div id="area-postagens">
+
+
+            <div class="postagem">
+                <h1>Salgados</h1>
+                <div id="principal">
+
+                    <div class="carrossel">
+                        <div class="slides">
+                          <img src="imagens/salgado1.jpg" class="slide ativo">
+                          <img src="imagens/salgado2.jpg" class="slide">
+                          <img src="imagens/salgado3.jpg" class="slide">
+                                  
+                        </div>
+                      
+                        <div class="controles">
+                          <button class="seta esquerda">&#10094;</button>
+                          <button class="seta direita">&#10095;</button>
+                        </div>
+                      
+                        <div class="bolinhas"></div>
+                      </div>
+                <p>
+                    Os melhores salgados da cidade é com a gente!!!
+                </p>
+
+            </div>
+
+            <div class="postagem">
+                <h1>Salgados</h1>
+                <div id="principal">
+
+                    <div class="carrossel">
+                        <div class="slides">
+                          <img src="imagens/salgado4.jpg" class="slide ativo">
+                          <img src="imagens/salgado5.jpg" class="slide">
+                          <img src="imagens/salgado6.jpg" class="slide">
+                                  
+                        </div>
+                      
+                        <div class="controles">
+                          <button class="seta esquerda">&#10094;</button>
+                          <button class="seta direita">&#10095;</button>
+                        </div>
+                      
+                        <div class="bolinhas"></div>
+                      </div>
+                <p>
+                    Salgados variados com o melhor tempero é com quem sabe, Rapidão Lanches!!!
+                </p>
+
+            </div>
+
+            <div class="postagem">
+                <h1>Salgados</h1>
+                <div id="principal">
+
+                    <div class="carrossel">
+                        <div class="slides">
+                          <img src="imagens/salgado7.jpg" class="slide ativo">
+                          <img src="imagens/salgado8.jpg" class="slide">
+                          <img src="imagens/salgado9.jpg" class="slide">
+                                  
+                        </div>
+                      
+                        <div class="controles">
+                          <button class="seta esquerda">&#10094;</button>
+                          <button class="seta direita">&#10095;</button>
+                        </div>
+                      
+                        <div class="bolinhas"></div>
+                      </div>
+                <p>
+                    Fazemos orçamento de salgados para festas, procure nosso gerente para que a melhor oferta lhe atenda!!!
+                </p>
+
+            </div>
+            <script>
+                document.querySelectorAll(".carrossel").forEach(carrossel => {
+                  const slides = carrossel.querySelectorAll(".slide");
+                  const bolinhasContainer = carrossel.querySelector(".bolinhas");
+                  const esquerda = carrossel.querySelector(".seta.esquerda");
+                  const direita = carrossel.querySelector(".seta.direita");
+                  let index = 0;
+              
+                  function mostrarSlide(i) {
+                    slides.forEach(slide => slide.classList.remove("ativo"));
+                    bolinhasContainer.querySelectorAll("span").forEach(b => b.classList.remove("ativa"));
+                    slides[i].classList.add("ativo");
+                    bolinhasContainer.children[i].classList.add("ativa");
+                  }
+              
+                  function criarBolinhas() {
+                    slides.forEach((_, i) => {
+                      const bolinha = document.createElement("span");
+                      bolinha.addEventListener("click", () => {
+                        index = i;
+                        mostrarSlide(index);
+                      });
+                      bolinhasContainer.appendChild(bolinha);
+                    });
+                  }
+              
+                  esquerda.addEventListener("click", () => {
+                    index = (index - 1 + slides.length) % slides.length;
+                    mostrarSlide(index);
+                  });
+              
+                  direita.addEventListener("click", () => {
+                    index = (index + 1) % slides.length;
+                    mostrarSlide(index);
+                  });
+              
+                  setInterval(() => {
+                    index = (index + 1) % slides.length;
+                    mostrarSlide(index);
+                  }, 5000);
+              
+                  criarBolinhas();
+                  mostrarSlide(index);
+                });
+              </script>
+        
+
+</body>
+
+</html>
